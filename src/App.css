@@ -3,9 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: auto;
 }
-
+/*
 .App-title {
   margin-top: 1rem;
   color: white;
@@ -15,3 +17,4 @@
   font-size: 5rem;
   width: 50%;
 }
+*/

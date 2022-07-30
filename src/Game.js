@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Dice from "./Dice";
 import ScoreTable from "./ScoreTable";
 import { useTheme } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
 import { useMediaQuery } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import "./Game.css";
 
 const NUM_DICE = 5;
@@ -109,7 +109,7 @@ function Game() {
       "0 Rolls Left",
       "1 Roll Left",
       "2 Rolls Left",
-      "Tap for first roll",
+      "Starting Round",
     ];
     return messages[gameState.rollsLeft];
   }
@@ -122,24 +122,44 @@ function Game() {
     <Grid
       container
       direction="column"
-      justify="center"
-      alignContent="center"
       style={{
-        width: "40%",
         background: "white",
         boxShadow:
           "0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1)",
-        margin: matchesSM ? "0 10%" : "0 30%",
+        margin: "0 30%",
       }}
     >
-      <header className="Game-header">
-        <h1 className="App-title">Play Yahtzee!</h1>
-        <h3>By Ron's Fun & Games</h3>
+      <Grid container direction="column" className="Game-header">
+        <Grid item>
+          <h1
+            style={{
+              color: "white",
+
+              fontWeight: matchesSM ? "100" : "200",
+              fontSize: matchesSM ? "1.5em" : "2.5em",
+              display: "inline-block",
+            }}
+          >
+            Play Yahtzee!
+          </h1>
+        </Grid>
+        <Grid item>
+          <h3
+            style={{
+              color: "white",
+              fontWeight: matchesSM ? "100" : "200",
+              fontSize: matchesSM ? "0.5em" : "1em",
+              display: "inline-block",
+            }}
+          >
+            By Ron's Fun & Games
+          </h3>
+        </Grid>
 
         <Grid
           item
           style={{
-            width: matchesSM ? "40%" : "80%",
+            width: "100%",
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: "0",
@@ -155,11 +175,22 @@ function Game() {
 
           <div className="Game-button-wrapper">
             <button
+              size="small"
               className="Game-reroll"
+              style={{
+                fontSize: matchesSM ? ".75em" : "1.75em",
+                color: "black",
+                fontWeight: matchesSM ? "100" : "200",
+
+                border: matchesSM ? "1px solid black" : "3px solid black",
+                borderRadius: "3px",
+                width: "60%",
+                marginBottom: matchesSM ? "1rem" : "2rem",
+              }}
               disabled={
                 gameState.locked.every((x) => x) ||
                 gameState.rollsLeft === 0 ||
-                gameState.MathisRolling
+                gameState.isRolling
               }
               onClick={animateRoll}
             >
@@ -174,10 +205,11 @@ function Game() {
             </button>
           </div>
         </Grid>
-      </header>
-      <div>
+      </Grid>
+
+      <Grid container direction="row">
         <ScoreTable doScore={doScore} scores={gameState.scores} />
-      </div>
+      </Grid>
       <div className="Game-reset">
         <button className="resetButton" onClick={reset}>
           Reset Game

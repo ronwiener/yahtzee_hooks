@@ -1,5 +1,6 @@
 import React from "react";
 import RuleRow from "./RuleRow";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -32,158 +33,134 @@ function ScoreTable({ scores, doScore }) {
   }
 
   return (
-    <Grid
-      container
-      direction="column"
-      justify="center"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "0.9rem",
-        width: "100%",
-        backgroundColor: "white",
-        padding: "1em",
-      }}
-    >
-      <h2
-        style={{
-          color: "red",
-        }}
-      >
-        Upper
-      </h2>
-      <Grid item container>
-        <table
-          cellSpacing="0"
+    <Container>
+      <Grid item>
+        <h2
           style={{
-            width: matchesSM ? "10vw" : "30vw",
-            margin: " 0 auto",
-            minWidth: "400px",
+            color: "red",
+            fontSize: matchesSM ? "18px" : "h2",
+            padding: matchesSM ? "4px" : "8px",
           }}
         >
-          <tbody>
-            <RuleRow
-              name="Ones"
-              score={scores.ones}
-              description={ones.description}
-              doScore={(evt) => doScore("ones", ones.evalRoll)}
-            />
-
-            <RuleRow
-              name="Twos"
-              score={scores.twos}
-              description={twos.description}
-              doScore={(evt) => doScore("twos", twos.evalRoll)}
-            />
-
-            <RuleRow
-              name="Threes"
-              score={scores.threes}
-              description={threes.description}
-              doScore={(evt) => doScore("threes", threes.evalRoll)}
-            />
-
-            <RuleRow
-              name="Fours"
-              score={scores.fours}
-              description={fours.description}
-              doScore={(evt) => doScore("fours", fours.evalRoll)}
-            />
-
-            <RuleRow
-              name="Fives"
-              score={scores.fives}
-              description={fives.description}
-              doScore={(evt) => doScore("fives", fives.evalRoll)}
-            />
-
-            <RuleRow
-              name="Sixes"
-              score={scores.sixes}
-              description={sixes.description}
-              doScore={(evt) => doScore("sixes", sixes.evalRoll)}
-            />
-          </tbody>
-        </table>
+          Upper
+        </h2>
       </Grid>
-      <h2
-        style={{
-          color: "red",
-        }}
-      >
-        Lower
-      </h2>
+      <Grid container direction="row">
+        <RuleRow
+          name="Ones"
+          score={scores.ones}
+          description={ones.description}
+          doScore={(evt) => doScore("ones", ones.evalRoll)}
+        />
 
-      <table
-        cellSpacing="0"
-        style={{
-          width: matchesSM ? "10vw" : "30vw",
-          margin: " 0 auto",
-          minWidth: "400px",
-        }}
-      >
-        <tbody>
-          <RuleRow
-            name="Three of Kind"
-            score={scores.threeOfKind}
-            description={threeOfKind.description}
-            doScore={(evt) => doScore("threeOfKind", threeOfKind.evalRoll)}
-          />
+        <RuleRow
+          name="Twos"
+          score={scores.twos}
+          description={twos.description}
+          doScore={(evt) => doScore("twos", twos.evalRoll)}
+        />
 
-          <RuleRow
-            name="Four of Kind"
-            score={scores.fourOfKind}
-            description={fourOfKind.description}
-            doScore={(evt) => doScore("fourOfKind", fourOfKind.evalRoll)}
-          />
+        <RuleRow
+          name="Threes"
+          score={scores.threes}
+          description={threes.description}
+          doScore={(evt) => doScore("threes", threes.evalRoll)}
+        />
 
-          <RuleRow
-            name="Full House"
-            score={scores.fullHouse}
-            description={fullHouse.description}
-            doScore={(evt) => doScore("fullHouse", fullHouse.evalRoll)}
-          />
+        <RuleRow
+          name="Fours"
+          score={scores.fours}
+          description={fours.description}
+          doScore={(evt) => doScore("fours", fours.evalRoll)}
+        />
 
-          <RuleRow
-            name="Small Straight"
-            score={scores.smallStraight}
-            description={smallStraight.description}
-            doScore={(evt) => doScore("smallStraight", smallStraight.evalRoll)}
-          />
+        <RuleRow
+          name="Fives"
+          score={scores.fives}
+          description={fives.description}
+          doScore={(evt) => doScore("fives", fives.evalRoll)}
+        />
 
-          <RuleRow
-            name="Large Straight"
-            score={scores.largeStraight}
-            description={largeStraight.description}
-            doScore={(evt) => doScore("largeStraight", largeStraight.evalRoll)}
-          />
+        <RuleRow
+          name="Sixes"
+          score={scores.sixes}
+          description={sixes.description}
+          doScore={(evt) => doScore("sixes", sixes.evalRoll)}
+        />
+      </Grid>
+      <Grid item>
+        <h2
+          style={{
+            color: "red",
+            fontSize: matchesSM ? "18px" : "h2",
+            padding: matchesSM ? "4px" : "8px",
+          }}
+        >
+          Lower
+        </h2>
+      </Grid>
+      <Grid container>
+        <RuleRow
+          name="Three of Kind"
+          score={scores.threeOfKind}
+          description={threeOfKind.description}
+          doScore={(evt) => doScore("threeOfKind", threeOfKind.evalRoll)}
+        />
 
-          <RuleRow
-            name="Yahtzee"
-            score={scores.yahtzee}
-            description={yahtzee.description}
-            doScore={(evt) => doScore("yahtzee", yahtzee.evalRoll)}
-          />
+        <RuleRow
+          name="Four of Kind"
+          score={scores.fourOfKind}
+          description={fourOfKind.description}
+          doScore={(evt) => doScore("fourOfKind", fourOfKind.evalRoll)}
+        />
 
-          <RuleRow
-            name="Chance"
-            score={scores.chance}
-            description={chance.description}
-            doScore={(evt) => doScore("chance", chance.evalRoll)}
-          />
-        </tbody>
-      </table>
+        <RuleRow
+          name="Full House"
+          score={scores.fullHouse}
+          description={fullHouse.description}
+          doScore={(evt) => doScore("fullHouse", fullHouse.evalRoll)}
+        />
 
-      <h2
-        style={{
-          color: "red",
-        }}
-      >
-        TOTAL SCORE: {getTotalScore()}
-      </h2>
-    </Grid>
+        <RuleRow
+          name="Small Straight"
+          score={scores.smallStraight}
+          description={smallStraight.description}
+          doScore={(evt) => doScore("smallStraight", smallStraight.evalRoll)}
+        />
+
+        <RuleRow
+          name="Large Straight"
+          score={scores.largeStraight}
+          description={largeStraight.description}
+          doScore={(evt) => doScore("largeStraight", largeStraight.evalRoll)}
+        />
+
+        <RuleRow
+          name="Yahtzee"
+          score={scores.yahtzee}
+          description={yahtzee.description}
+          doScore={(evt) => doScore("yahtzee", yahtzee.evalRoll)}
+        />
+
+        <RuleRow
+          name="Chance"
+          score={scores.chance}
+          description={chance.description}
+          doScore={(evt) => doScore("chance", chance.evalRoll)}
+        />
+      </Grid>
+      <Grid item>
+        <h2
+          style={{
+            color: "red",
+            fontSize: matchesSM ? "18px" : "h2",
+            padding: matchesSM ? "4px" : "8px",
+          }}
+        >
+          TOTAL SCORE: {getTotalScore()}
+        </h2>
+      </Grid>
+    </Container>
   );
 }
 export default ScoreTable;

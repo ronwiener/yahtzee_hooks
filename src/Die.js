@@ -1,19 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import "./Die.css";
 
 const numberWords = ["one", "two", "three", "four", "five", "six"];
 
 function Die({ locked, val, handleDieClick, idx, disabled, dieRoll }) {
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
   const handleRollClick = (evt) => {
     handleDieClick(idx);
   };
 
-  let classes = `Die fas fa-dice-${numberWords[val - 1]} fa-5x `;
+  let classes = matchesSM
+    ? `Die fas fa-dice-${numberWords[val - 1]} fa-2x `
+    : `Die fas fa-dice-${numberWords[val - 1]} fa-4x `;
   if (locked) classes += "Die-locked";
   if (dieRoll) classes += "Die-rolling";
 
   return (
-    <i className={classes} onClick={handleRollClick} disabled={disabled} />
+    <i
+      className={classes}
+      onClick={handleRollClick}
+      disabled={disabled}
+      style={{
+        padding: matchesSM ? "2px" : "4px",
+        margin: "1rem",
+      }}
+    />
   );
 }
 

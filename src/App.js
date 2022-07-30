@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import Game from "./Game";
+import Grid from "@mui/material/Grid";
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Game />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <Grid container direction="row" className="App">
+      <Game />
+    </Grid>
+  );
 }
 
 export default App;
