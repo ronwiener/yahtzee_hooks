@@ -187,7 +187,7 @@ function Game() {
                 border: matchesSM ? "1px solid black" : "3px solid black",
                 borderRadius: "3px",
                 width: "60%",
-                height: matchesSM ? "1.5rem" : "3rem",
+                height: matchesSM ? "1.75rem" : "3rem",
                 marginBottom: matchesSM ? "1rem" : "2rem",
               }}
               disabled={

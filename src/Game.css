@@ -104,7 +104,7 @@
   font-family: neon;
   color: #fb4264;
   margin-right: 5px;
-  font-size: 40px;
+  font-size: 18px;
   text-shadow: 0 0 1vw #f40a35;
   animation: neon-orange 1s ease infinite;
   -moz-animation: neon-orange 1s ease infinite;
@@ -115,7 +115,7 @@
   font-family: neon;
   color: #426dfb;
   margin-left: 5px;
-  font-size: 40px;
+  font-size: 18px;
   text-shadow: 0 0 1vw #2356ff;
   animation: neon-blue 2s linear infinite;
   -moz-animation: neon-blue 2s linear infinite;
