@@ -137,8 +137,8 @@ function Game() {
             style={{
               color: "white",
 
-              fontWeight: matchesSM ? "100" : "200",
-              fontSize: matchesSM ? "1.5em" : "2.5em",
+              fontWeight: matchesSM ? "200" : "300",
+              fontSize: matchesSM ? "1.75em" : "2.5em",
               display: "inline-block",
             }}
           >
@@ -149,8 +149,8 @@ function Game() {
           <h3
             style={{
               color: "white",
-              fontWeight: matchesSM ? "100" : "200",
-              fontSize: matchesSM ? "0.5em" : "1em",
+              fontWeight: matchesSM ? "200" : "300",
+              fontSize: matchesSM ? "0.75em" : "1em",
               display: "inline-block",
             }}
           >
@@ -180,9 +180,9 @@ function Game() {
               size="small"
               className="Game-reroll"
               style={{
-                fontSize: matchesSM ? ".75em" : "1.75em",
+                fontSize: matchesSM ? "1em" : "1.75em",
                 color: "black",
-                fontWeight: matchesSM ? "100" : "200",
+                fontWeight: matchesSM ? "200" : "300",
 
                 border: matchesSM ? "1px solid black" : "3px solid black",
                 borderRadius: "3px",

@@ -38,7 +38,7 @@ function ScoreTable({ scores, doScore }) {
         <h2
           style={{
             color: "red",
-            fontSize: matchesSM ? "18px" : "h2",
+            fontSize: matchesSM ? "20px" : "h2",
             padding: matchesSM ? "4px" : "8px",
           }}
         >
@@ -92,7 +92,7 @@ function ScoreTable({ scores, doScore }) {
         <h2
           style={{
             color: "red",
-            fontSize: matchesSM ? "18px" : "h2",
+            fontSize: matchesSM ? "20px" : "h2",
             padding: matchesSM ? "4px" : "8px",
           }}
         >
@@ -153,7 +153,7 @@ function ScoreTable({ scores, doScore }) {
         <h2
           style={{
             color: "red",
-            fontSize: matchesSM ? "18px" : "h2",
+            fontSize: matchesSM ? "20px" : "h2",
             padding: matchesSM ? "4px" : "8px",
           }}
         >

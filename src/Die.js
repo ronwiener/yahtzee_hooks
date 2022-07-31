@@ -14,8 +14,8 @@ function Die({ locked, val, handleDieClick, idx, disabled, dieRoll }) {
   };
 
   let classes = matchesSM
-    ? `Die fas fa-dice-${numberWords[val - 1]} fa-2x `
-    : `Die fas fa-dice-${numberWords[val - 1]} fa-4x `;
+    ? `Die fas fa-dice-${numberWords[val - 1]} fa-3x `
+    : `Die fas fa-dice-${numberWords[val - 1]} fa-5x `;
   if (locked) classes += "Die-locked";
   if (dieRoll) classes += "Die-rolling";
 

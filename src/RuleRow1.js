@@ -38,7 +38,7 @@ function RuleRow({ score, name, doScore, description }) {
             <p
               style={{
                 textAlign: "left",
-                fontSize: matchesSM ? "10px" : " 16px",
+                fontSize: matchesSM ? "14px" : " 18px",
               }}
             >
               {name}
@@ -48,7 +48,7 @@ function RuleRow({ score, name, doScore, description }) {
             <p
               style={{
                 textAlign: "right",
-                fontSize: matchesSM ? "10px" : " 16px",
+                fontSize: matchesSM ? "14px" : " 18px",
               }}
             >
               {disabled ? score : description}
