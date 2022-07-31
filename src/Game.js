@@ -123,10 +123,12 @@ function Game() {
       container
       direction="column"
       style={{
+        width: "auto",
         background: "white",
         boxShadow:
           "0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1)",
-        margin: "0 30%",
+        marginTop: "5px",
+        marginBottom: "5px",
       }}
     >
       <Grid container direction="column" className="Game-header">
@@ -185,6 +187,7 @@ function Game() {
                 border: matchesSM ? "1px solid black" : "3px solid black",
                 borderRadius: "3px",
                 width: "60%",
+                height: matchesSM ? "1.5rem" : "3rem",
                 marginBottom: matchesSM ? "1rem" : "2rem",
               }}
               disabled={

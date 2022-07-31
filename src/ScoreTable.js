@@ -1,5 +1,5 @@
 import React from "react";
-import RuleRow from "./RuleRow";
+import RuleRow from "./RuleRow1";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
@@ -45,7 +45,7 @@ function ScoreTable({ scores, doScore }) {
           Upper
         </h2>
       </Grid>
-      <Grid container direction="row">
+      <Grid container direction="row" justifyContent="center">
         <RuleRow
           name="Ones"
           score={scores.ones}
@@ -99,7 +99,7 @@ function ScoreTable({ scores, doScore }) {
           Lower
         </h2>
       </Grid>
-      <Grid container>
+      <Grid container direction="row" justifyContent="center">
         <RuleRow
           name="Three of Kind"
           score={scores.threeOfKind}
