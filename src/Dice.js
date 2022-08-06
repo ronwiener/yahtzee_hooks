@@ -11,7 +11,7 @@ function Dice({ dice, handleClick, locked, disabled, rolling }) {
     >
       <Grid container="row">
         {dice.map((d, idx) => (
-          <Grid item xs={2.4}>
+          <Grid item xs={2.4} key={idx}>
             <Die
               handleDieClick={handleClick}
               val={d}

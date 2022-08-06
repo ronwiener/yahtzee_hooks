@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import RuleRow from "./RuleRow1";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -20,8 +20,7 @@ import {
   chance,
 } from "./Rules";
 
-function ScoreTable({ scores, doScore, gameOver }) {
-  const [highScore, setHighScore] = useState(0);
+function ScoreTable({ scores, doScore }) {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -30,23 +29,9 @@ function ScoreTable({ scores, doScore, gameOver }) {
     for (let key in scores) {
       if (scores[key]) totalScore += scores[key];
     }
-    if (totalScore > highScore) {
-      setHighScore(totalScore);
-      const json = JSON.stringify(totalScore);
-
-      localStorage.setItem("highScore", json);
-    }
 
     return totalScore;
   }
-
-  useEffect(() => {
-    const json = localStorage.getItem("highScore");
-    const savedScore = JSON.parse(json);
-    if (savedScore) {
-      setHighScore(savedScore);
-    }
-  }, []);
 
   return (
     <Container>
@@ -166,36 +151,16 @@ function ScoreTable({ scores, doScore, gameOver }) {
         />
       </Grid>
 
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="flex-end"
-      >
-        <Grid item>
-          <h2
-            style={{
-              color: "red",
-              fontSize: matchesSM ? "20px" : "h2",
-              padding: matchesSM ? "4px" : "8px",
-            }}
-          >
-            TOTAL SCORE: {getTotalScore()}
-          </h2>
-        </Grid>
-        <Grid item>
-          {gameOver ? (
-            <h3
-              style={{
-                color: "red",
-                fontSize: matchesSM ? "20px" : "h2",
-                padding: matchesSM ? "4px" : "8px",
-              }}
-            >
-              Your highest score: {highScore}
-            </h3>
-          ) : null}
-        </Grid>
+      <Grid item>
+        <h2
+          style={{
+            color: "red",
+            fontSize: matchesSM ? "20px" : "h2",
+            padding: matchesSM ? "4px" : "8px",
+          }}
+        >
+          TOTAL SCORE: {getTotalScore()}
+        </h2>
       </Grid>
     </Container>
   );

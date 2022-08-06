@@ -12,6 +12,7 @@ const NUM_ROLLS = 3;
 function Game() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
   const [gameState, setGameState] = useState({
     dice: Array.from({ length: NUM_DICE }),
     locked: Array(NUM_DICE).fill(false),
@@ -211,13 +212,17 @@ function Game() {
       </Grid>
 
       <Grid container direction="row">
-        <ScoreTable doScore={doScore} scores={gameState.scores} />
+        <ScoreTable
+          doScore={doScore}
+          scores={gameState.scores}
+          gameOver={gameOver}
+        />
       </Grid>
-      <div className="Game-reset">
+      <Grid item className="Game-reset">
         <button className="resetButton" onClick={reset}>
           Reset Game
         </button>
-      </div>
+      </Grid>
     </Grid>
   );
 }
