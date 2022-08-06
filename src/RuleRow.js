@@ -8,38 +8,52 @@ import "./RuleRow.css";
 function RuleRow({ score, name, doScore, description }) {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const disabled = score !== undefined;
 
   return (
     <Grid
       container
-      justifyContent="space-around"
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
       className={`RuleRow RuleRow-${disabled ? "disabled" : "active"}`}
       onClick={disabled ? null : doScore}
-      style={{
-        width: "70vw",
-      }}
     >
-      <Grid item>
-        <td>
-          <span
-            style={{
-              // marginLeft: matchesSM ? "0px" : "2px",
-              fontSize: matchesSM ? "10px" : " 16px",
-            }}
-          >
-            {name}
-          </span>
-
-          <span
-            style={{
-              marginLeft: matchesSM ? "20px" : matchesMD ? "100px" : "265px",
-              fontSize: matchesSM ? "10px" : " 16px",
-            }}
-          >
-            {disabled ? score : description}
-          </span>
+      <Grid
+        item
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        style={{
+          width: "80vw",
+          marginBlockEnd: "5px",
+        }}
+      >
+        <td
+          style={{
+            display: "flex",
+          }}
+        >
+          <Grid item xs={6}>
+            <p
+              style={{
+                textAlign: "left",
+                fontSize: matchesSM ? "14px" : " 18px",
+              }}
+            >
+              {name}
+            </p>
+          </Grid>
+          <Grid item xs={6}>
+            <p
+              style={{
+                textAlign: "right",
+                fontSize: matchesSM ? "14px" : " 18px",
+              }}
+            >
+              {disabled ? score : description}
+            </p>
+          </Grid>
         </td>
       </Grid>
     </Grid>
